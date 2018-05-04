@@ -2,7 +2,7 @@
 跨平台的移动端ui组件库
 
 ### 介绍
-x-ui是基于react native和react开发出的移动app端和h5端的三端ui组件库。
+x-ui是基于react native和react开发出的跨android、ios和h5的三端ui组件库。
 
 ### 如何使用
 #### 起步
