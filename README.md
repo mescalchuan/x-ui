@@ -117,8 +117,8 @@ activeOpacity `rn only` | 按钮点击时的按钮透明度 | number | `0.6`
 inline | 是否是行内按钮 | boolean | `false`
 buttonColor | 按钮背景色 | string | `"#ff4f4f"`
 buttonStyle | 自定义按钮样式 | object | `{}`
-size | 按钮大小 | string | `BUTTON_SIZE.MIDDLE`
-type | 按钮类型 | string | `BUTTON_TYPE.FILL`
+size | 按钮大小 | BUTTON_SIZE| `BUTTON_SIZE.MIDDLE`
+type | 按钮类型 | BUTTON_TYPE| `BUTTON_TYPE.FILL`
 textStyle | 文本样式 | object | `{}`
 disabled | 是否禁用 | boolean | `false`
 loading `rn only` | 是否显示loading圈 | boolean | `false`
@@ -310,5 +310,136 @@ style | 自定义样式 | object | `{}`
 </Collapse>
 ```
 
+#### counter
+计数器，数字选择框。
 
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+defaultValue | 计数器默认值 | number | `null`
+value | 计数器的值 | number | `null`
+maxValue | 最大值 | number | `99`
+minValue | 最小值 | number | `0`
+stepNum | 跨度值 | number | `1`
+btnWidth `rn only` | 按钮宽度 | number | `35`
+containerHeight `rn only` | 总高度 | number | `30`
+inputWidth `rn only` | 输入框宽度 | number | `40`
+borderColor | 边框颜色 | string | `"#d5d3d3"`
+btnColor | 按钮颜色 | string | `"#eeeeee"`
+onChange | value发生改变时的回调 | function | `() => {}`
+disabled | 是否禁用 | boolean | `false`
 
+```
+<Counter defaultValue = {5} stepNum = {2} minValue = {1} maxValue = {9} />
+```
+
+#### drawerlayout
+抽屉视图，用于左右侧弹出的菜单。
+`import DrawerLayout, {DRAWER_POSITION, DRAWER_LOCK_MODE, KEYBOARD_DISMISS_MODE} from './component/drawerLayout'`
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+drawerWidth `rn only` | 抽屉宽度 | number | `200`
+renderNavigationView | 抽屉内容 | function | `() => {}`
+drawerPosition | 抽屉位置 | DRAWER_POSITION |`DRAWER_POSITION.LEFT`
+drawerLockMode `rn only` | 抽屉状态 | DRAWER_LOCK_MODE | `DRAWER_LOCK_MODE.UNLOCKED`
+keyboardDismissMode `rn only` | 键盘关闭模式 | KEYBOARD_DISMISS_MODE | `KEYBOARD_DISMISS_MODE.NONE`
+onDrawerOpen | 抽屉打开时的回调 | function | `() => {}`
+onDrawerClose | 抽屉关闭时的回调 | function | `() => {}`
+onDrawerSlide `rn only` | 抽屉滑动时的回调 | function | `() => {}`
+openDrawer() `static` | 外部打开抽屉 | function | |
+closeDrawer() `static` | 外部关闭抽屉 | function | |
+
+```
+const drawerView = (
+  <div>
+    <List title = {'前往商城'} showLine />
+    <List title = {'个人中心'} showLine />
+    <List title = {'设置'} showLine />
+    <p className = {'margin-15 header-text'}>I'm in the Drawer!</p>
+  </div>
+)
+<Button 
+  onPress = {() => this.drawer.openDrawer()} 
+>打开右侧抽屉</Button>
+<DrawerLayout 
+  drawerPosition = {DRAWER_POSITION.RIGHT} 
+  renderNavigationView = {() => drawerView} 
+  ref = {drawer => this.drawer = drawer} 
+/>
+```
+
+```
+const navigationView = (
+  <View style={{flex: 1, backgroundColor: '#fff'}} >
+    <List title = {'前往商城'} />
+    <List title = {'个人中心'} />
+    <List title = {'设置'} />
+    <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+  </View>
+)
+<DrawerLayout
+  drawerWidth = {200}
+  renderNavigationView = {() => navigationView}
+  onDrawerOpen = {() => console.log('opend')}
+  onDrawerClose = {() => console.log('closed')}
+  onDrawerSlide = {() => console.log('sliding')}
+  ref = {drawer => this.Drawer = drawer}
+>
+  <View style = {styles.container} >
+    <Text style = {styles.introduction} >一个纯JavaScript实现的抽屉组件，具有和React Native的DrawerLayoutAndroid相同的api。我们舍弃了使用率较低的onDrawerStateChanged，并将所有枚举类型单独提取出来。</Text>
+    <Button buttonColor = {'#108EE9'} onPress = {() => this.Drawer.openDrawer()} >打开抽屉</Button>
+  </View>
+</DrawerLayout>
+```
+#### flex
+基于flex实现的栅格系统。
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+justify | 主轴对齐方式 | string, flex-justify-conent | `"flex-start"`
+align | 次轴对齐方式 | string, flex-align-items, (`h5`比`rn`多了`stretch`和`baseline`) | `"flex-start"`
+wrap| 折行方式 | string, flex-wrap | `"wrap"`
+flexStyle | 容器样式 | object | `{}`
+`Flex.Item` flex | 空间分配比例 | number | `1`
+`Flex.Item` flexItemStyle | flexItem样式 | object | `{}` 
+
+```
+<Flex flexStyle = {{marginBottom: '0.4rem'}} >
+  <Flex.Item>
+    <div className = {'flex-item'} style = {{backgroundColor: '#108EE9'}} >
+      <p className = {'flex-text'} >50%</p>
+    </div>
+  </Flex.Item>
+  <Flex.Item>
+    <div className = {'flex-item'} style = {{backgroundColor: '#4badf3'}} >
+      <p className = {'flex-text'} >50%</p>
+    </div>
+  </Flex.Item>
+</Flex>
+```
+
+```
+<Flex 
+  justify = {'flex-end'} 
+  align = {'flex-end'} 
+  flexStyle = {{marginBottom: 20}} 
+>
+  {
+    (function() {
+      return [1,2,3].map((item, index) => {
+        let secondViewStyle = {};
+        if(index == 1) {
+          secondViewStyle = {
+            height: 20
+          }
+        }
+        return (
+          <View key = {index} style = {[styles.wrapStyle, secondViewStyle, {marginLeft: 10, marginRight: 0}, {backgroundColor: '#8c62f9'}]} >
+            <Text style = {styles.flexText} >修改次轴</Text>
+          </View>
+        )
+      })
+    })()
+  }
+</Flex>
+```
