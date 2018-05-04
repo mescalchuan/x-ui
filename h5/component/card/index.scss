@@ -1,0 +1,38 @@
+@import '../../common/basic';
+
+%x-card-border {
+    border: 1px solid $line-color;
+}
+
+.x-card {
+    @extend %x-card-border;
+    background-color: white;
+}
+
+.x-card-header {
+    padding: px2rem(30);
+    @include flex-box;
+    @extend %x-card-border;
+    border-width: 0 0 1px 0;
+}
+
+.x-card-body {
+    padding: px2rem(30);
+}
+
+.x-card-footer {
+    padding: px2rem(30);
+    @include flex-box;
+    @include prefix(justify-content, space-between);
+    @extend %x-card-border;
+    border-width: 1px 0 0 0;
+}
+
+.x-card-wrap-container {
+    margin: px2rem(-30) px2rem(-30) 0 px2rem(-30);
+    background-color: white;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,31 @@
+@import '../../common/basic';
+
+$slider-height: 44;
+
+.x-slider-container {
+    height: px2rem($slider-height);
+    position: relative;
+    @include flex-box;
+    @include prefix(justify-content, center);
+    @include prefix(align-items, center);
+    .x-slider-circle {
+        width: px2rem($slider-height);
+        height: px2rem($slider-height);
+        @include prefix(border-radius, px2rem($slider-height));
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+    .x-slider-crossOverView {
+        height: px2rem(4);
+        position: absolute;
+        top: px2rem($slider-height / 2 - 2);
+        left: px2rem($slider-height / 2);
+        z-index: 1;
+    }
+    .x-slider-bar {
+        height: px2rem(4);
+        width: px2rem($slider-height - 44);
+    }
+}

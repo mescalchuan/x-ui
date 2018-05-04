@@ -1,0 +1,17 @@
+@import '../../common/basic'; 
+
+.x-collapse-container {
+    border-bottom: 1px solid $line-color;
+    background-color: white;
+    .x-collapse-icon {
+        width: px2rem(32);
+        height: px2rem(32);
+    }
+}
+
+.x-collapse-panel {
+    overflow: hidden;
+    hr {
+        @extend %hr;
+    }
+}

@@ -1,0 +1,38 @@
+@import '../../common/basic';
+
+$align-config: (flex-start, center, flex-end, stretch, baseline);
+@each $align in $align-config {
+    .x-list-align-#{$align} {
+        @include prefix(align-self, $align);
+    }
+}
+
+.x-list-container {
+    .x-list-content {
+        min-height: px2rem(90);
+        @include flex-box;
+        @include prefix(flex, 1);
+        padding: px2rem(20) px2rem(30);
+        background-color: white;
+        @include prefix(justify-content, space-between);
+        @include prefix(align-items, center);
+        box-sizing: border-box;
+    }
+    hr {
+        @extend %hr;
+    }
+    .x-list-icon {
+        width: px2rem(30);
+        height: px2rem(30);
+    }
+    
+    .x-list-row-flex {
+        @include flex-box;
+        @include prefix(align-items, center);
+    }
+}
+
+.x-list-title {
+    color: #333333;
+    @include font-dpr(16px);
+}

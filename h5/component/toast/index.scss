@@ -1,0 +1,33 @@
+@import '../../common/basic';
+
+.x-toast-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    @include flex-box;
+    @include prefix(justify-content, center);
+    @include prefix(align-items, center);
+    .x-toast-box {
+        min-width: px2rem(200);
+        padding: px2rem(18) px2rem(30);
+        background-color: rgba(0, 0, 0, 0.5);
+        @include prefix(border-radius, px2rem(6));
+        text-align: center;
+    }
+}
+
+.x-toast-text {
+    color: white;
+    @include font-dpr(17px);
+}
+
+.x-toast-point-none {
+    pointer-events: none;
+}
+
+.x-toast-point-auto {
+    pointer-events: auto;
+}

@@ -1,0 +1,18 @@
+@import '../../common/basic';
+
+.x-pagination-container {
+    @include flex-box;
+    @include prefix(align-items, center);
+    padding: px2rem(20) 0;
+    .x-pagination-text {
+        @include font-dpr(18px);
+    }
+}
+
+.x-pagination-justify-center {
+    @include prefix(justify-content, center);
+}
+
+.x-pagination-justify-between {
+    @include prefix(justify-content, space-between);
+}

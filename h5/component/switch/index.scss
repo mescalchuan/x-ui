@@ -1,0 +1,22 @@
+@import '../../common/basic';
+
+%border-css {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.x-switch-container {
+    width: px2rem(100);
+    @include prefix(border-radius, px2rem(60));
+    @extend %border-css;
+    transition: background-color 0.2s, border-color 0.2s;
+    -webkit-transition: background-color 0.2s, border-color 0.2s;
+    .x-switch-circle {
+        width: px2rem(54);
+        height: px2rem(54);
+        border-radius: px2rem(54);
+        @extend %border-css;
+        transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+        -webkit-transition: -webkit-transform 0.2s, background-color 0.2s, border-color 0.2s;
+    }
+}

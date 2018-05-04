@@ -1,0 +1,39 @@
+@import '../../common/basic';
+
+.x-ah-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.x-ah-item {
+    background-color: white;
+    @include flex-box;
+    @include prefix(justify-content, center);
+    @include prefix(align-items, center);
+}
+
+%x-ah-text-color {
+    color: $minor-color;
+}
+
+.x-ah-item-text {
+    @extend %x-ah-text-color;
+    @include font-dpr(18px);
+}
+
+.x-ah-title-text {
+    @extend %x-ah-text-color;
+    @include font-dpr(15px);
+}
+
+.x-ah-bd {
+    position: absolute;
+    background-color: #e8e8e8;
+    width: 100%;
+    hr {
+        @extend %hr;
+    }
+}

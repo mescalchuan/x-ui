@@ -1,0 +1,49 @@
+@import '../../common/basic';
+
+.x-tabbar-container {
+    height: 100vh;
+    @include flex-box;
+    @include prefix(flex-direction, column);
+}
+
+.x-tabbar-panel-ctn {
+    width: 100%;
+    .x-tabbar-panel {
+        @include flex-box;   
+        height: px2rem(98);
+        background-color: #f8f8f8;
+    }
+    hr {
+        @extend %hr
+    }
+    position: fixed;
+    bottom: 0;
+}
+
+.x-tabbar-item {
+    @include flex-box;
+    @include prefix(flex, 1);
+    @include prefix(justify-content, center);
+    @include prefix(align-items, center);
+    @include prefix(flex-direction, column);
+    color: $minor-color;
+    @include font-dpr(12px);
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.x-tabbar-item-active {
+    color: $main-color;
+}
+
+.x-tabbar-component {
+    display: none;
+    //overflow: auto;
+}
+
+.x-tabbar-component-active {
+    @include flex-box;
+    @include prefix(flex, 1);
+}

@@ -1,0 +1,25 @@
+@import '../../common/basic';
+
+$justify-config: (flex-start, center, flex-end, space-between, space-around);
+$align-config: (flex-start, center, flex-end, stretch, baseline);
+$wrap-config: (wrap, nowrap);
+
+@each $justify in $justify-config {
+    .x-flex-justify-#{$justify} {
+        @include prefix(justify-content, $justify);
+    }
+}
+@each $align in $align-config {
+    .x-flex-align-#{$align} {
+        @include prefix(align-items, $align);
+    }
+}
+@each $wrap in $wrap-config {
+    .x-flex-#{$wrap} {
+        @include prefix(flex-wrap, $wrap);
+    }
+}
+
+.x-flex-container {
+    @include flex-box;
+}

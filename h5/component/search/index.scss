@@ -1,0 +1,74 @@
+@import '../../common/basic.scss';
+
+%x-a-reset {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+%input-box {
+    @include prefix(flex, 1);
+    border-width: 0;
+    outline: none;
+    @include prefix(border-radius, px2rem(10));
+    padding: 0 px2rem(10);
+    background-color: white;
+    &::-webkit-input-placeholder{
+        color: #939393;
+    }
+}
+
+.x-search-container {
+    background-color: #EFEFF4;
+    height: px2rem(96);
+    padding: px2rem(20);
+    max-width: 100vw;
+    @include flex-box;
+    input {
+        @extend %input-box;
+    }
+    .x-search-cancel {
+        display: inline-block;
+        width: px2rem(60);
+        @extend %x-a-reset;  
+        line-height: px2rem(60);
+        text-align: center;
+        margin-left: px2rem(20);
+        overflow: hidden;
+        white-space: nowrap;
+        @include prefix(transition, all 0.2s);
+        color: $minor-color;
+    }
+    .x-search-box {
+        @extend %input-box;
+        @extend %x-a-reset;
+        display: table-cell;
+        vertical-align: middle;
+        color: #939393;
+    }
+    hr {
+        @extend %hr;
+    }
+}
+
+.x-search-container, .x-search-container input {
+    box-sizing: border-box;
+}
+
+.x-search-input {
+    @include font-dpr(15px);
+}
+
+.x-search-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+}
+
+.x-search-table {
+    display: table;
+    width: 100%;
+}

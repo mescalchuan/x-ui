@@ -1,0 +1,27 @@
+@import '../../common/basic';
+
+$button-width: px2rem(80);
+
+.x-header-container {
+    @include prefix(display, flex);
+    height: px2rem(100);
+    background-color: $main-color;
+    @include prefix(justify-content, space-between);
+    @include prefix(align-items, center);
+    padding: 0 px2rem(30);
+    box-shadow: 0 1px 6px #ccc;
+}
+.x-header-title-text {
+    color: white;
+    @include font-dpr(18px);
+}
+
+.x-header-button {
+    @include flex-box;
+    @include prefix(align-items, center);
+    width: $button-width;
+    height: $button-width;
+}
+.x-header-button-right {
+    @include prefix(justify-content, flex-end);
+}

@@ -1,0 +1,53 @@
+@import '../../common/basic';
+
+.x-button-container {
+    @include prefix(border-radius, px2rem(6));
+    padding: px2rem(24) 0;
+    text-align: center;
+    border: 1px solid;
+    box-sizing: border-box;
+    span {
+        @include font-dpr(18px);
+    }
+    .x-button-content {
+        i {
+            margin-right: px2rem(1)
+        }
+    }
+}
+
+.x-button-block {
+    min-height: px2rem(75);
+}
+
+.x-button-inline {
+    display: inline-block;
+}
+
+.x-button-small {
+    padding: px2rem(8);
+    min-width: px2rem(8);
+    span {
+        @include font-dpr(14px);
+    }
+}
+
+.x-button-middle {
+    padding: px2rem(16);
+    min-width: px2rem(140);
+    span {
+        @include font-dpr(16px);
+    }
+}
+
+.x-button-big {
+    padding: px2rem(24);
+    min-width: px2rem(200);
+    span {
+        @include font-dpr(20px);
+    }
+}
+
+.x-button-disabled {
+    opacity: 0.6;
+}

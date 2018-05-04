@@ -1,0 +1,43 @@
+$main-color: #ff4f4f;
+$minor-color: #333333;
+$line-color: #eeeeee;
+$base-px: 75; //px
+$check-box: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABKElEQVRYR+2V4TEEQRCFvxeBC0EGyOBEgAgQgggIQQaIABGQAUKQARE81VWjaotZ27d3t/vD9J+pmpqd9+3rnm4xc2hmfRpAc6A58D8csL0A7oGFpINu75nEAdsPwBHwLml3UgDbt8Ap8AksJb1OBjAkHiBbS0FGfGsAtq+Ay2L1oaTnvqG3cQdsnwE3RfBcUtRAb/wCKBW7A5xI+lhlXK8qXk2B7ajSPSDWsC8FMUa8DyCaRuQsDWF7CTwVty4kXWedq9ZA6VwpCNv7RTzA7yRFDaSjtwgzEOuKDz7DvyA2IT4IEAdqEDFUgJeyPko6Tnv+42CqD1Qg4prI/Vvp76mXUoNMAVSciK21xVMp6FJ3nIjtmGyj//z73rQDY3M89F0DaA7M7sAXMpl/Ia8A/tgAAAAASUVORK5CYII=';
+
+@mixin flex-box {
+    display: flex;
+    display: -webkit-flex;
+}
+
+@mixin prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin font-dpr($font-size) {
+    font-size: $font-size;
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
+}
+
+@function px2rem($px) {
+    @return ($px / $base-px) + rem;
+}
+
+%hr {
+    background-color: $line-color;
+    height: 1px;
+    border: none;
+}
+
+.x-show {
+    display: block;
+}
+
+.x-hide {
+    display: none;
+}

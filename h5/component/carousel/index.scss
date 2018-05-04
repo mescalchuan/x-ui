@@ -1,0 +1,22 @@
+@import '../../common/basic';
+
+.x-carousel-container {
+    overflow: hidden;
+    position: relative;
+    .x-carousel-main {
+        height: 100%;
+    }
+    .x-carousel-dot-container {
+        position: absolute;
+        left: 50%;
+        @include prefix(transform, translatex(-50%));
+        .x-carousel-dot {
+            float: left;
+        }
+    }
+    .x-carousel-list {
+        float: left;
+        overflow: hidden; 
+        height: 100%;
+    }
+}

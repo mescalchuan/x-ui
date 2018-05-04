@@ -1,0 +1,20 @@
+@import '../../common/basic';
+
+.x-badge-container {
+    position: relative;
+    display: inline-block;
+}
+
+.x-badge-basic {
+    padding: px2rem(2) px2rem(10);
+    @include prefix(border-radius, px2rem(30));
+    display: inline-block;
+    span {
+        @include font-dpr(10px);
+    }
+}
+
+.x-badge-num {
+    position: absolute;
+    top: px2rem(-16);
+}
