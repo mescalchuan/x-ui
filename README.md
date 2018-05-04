@@ -106,3 +106,209 @@ const containerBox = {
 </Badge>
 ```
 
+#### button
+按钮，支持块级、内联级、全填充、边框填充、大小等设置。
+
+`import Button, {BUTTON_SIZE, BUTTON_TYPE} from './component/button'`
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+activeOpacity `rn only` | 按钮点击时的按钮透明度 | number | `0.6`
+inline | 是否是行内按钮 | boolean | `false`
+buttonColor | 按钮背景色 | string | `"#ff4f4f"`
+buttonStyle | 自定义按钮样式 | object | `{}`
+size | 按钮大小 | string | `BUTTON_SIZE.MIDDLE`
+type | 按钮类型 | string | `BUTTON_TYPE.FILL`
+textStyle | 文本样式 | object | `{}`
+disabled | 是否禁用 | boolean | `false`
+loading `rn only` | 是否显示loading圈 | boolean | `false`
+loadingColor `rn only` | loading圈的颜色 | string | `"white"`
+icon | 按钮小图标, 如果loading为true，则icon无效 | element | `null`
+onPress | 触摸函数 | function | `() => {}` 
+
+```
+<Button
+  inline
+  size = {BUTTON_SIZE.SMALL}
+  type = {BUTTON_TYPE.GHOST}
+  icon = {<Icon name = {'ios-close-circle'} color = {'white'} size = {14} />}
+  onPress = {() => alert('button')}
+>small</Button>
+```
+
+#### card
+卡片视图，用于详细信息的展示。
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+`Card` cardStyle | 卡片基本样式 | object | `{}`
+`Card.Header` headerStyle | 头部样式 | object | `{}`
+`Card.Body` bodyStyle | 主要内容体样式 | object | `{}`
+`Card.Footer` footerStyle | 底部样式 | object | `{}`
+
+```
+<Card cardStyle = {margin15Ver} >
+  <Card.Header>
+    <p className = {'intro-text'} >这是一个标题</p>
+  </Card.Header>
+  <Card.Body>
+    <p className = {'intro-text'} >这是一个同时使用到了Card.Header、Card.Body、Card.Footer的卡片。</p>
+  </Card.Body>
+  <Card.Footer>
+    <p className = {'intro-text'} >底部左侧</p>
+    <p className = {'intro-text'} >底部右侧</p>
+  </Card.Footer>
+</Card>
+```
+
+```
+<Card cardStyle = {{marginHorizontal: 15, borderRadius: 8}} >
+  <Card.Header>
+    <Text style = {{color: '#333333', fontSize: 16, fontWeight: 'bold'}} >标题</Text>
+  </Card.Header>
+  <Card.Body>
+    <Text style = {{color: '#666666'}} >考虑到卡片的样式因需求的不同而不同，我们没有规定卡片所嵌套的组件的样式，这需要您自己定制。</Text>
+  </Card.Body>
+  <Card.Footer footerStyle = {{paddingVertical: 10}} >
+    <Text style = {{color: '#68b1ed'}} >喜欢</Text>
+    <Text style = {{color: '#68b1ed'}} >更多</Text>
+  </Card.Footer>
+</Card>
+```
+
+#### carousel
+轮播图，用于图片切换展示。
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+index | 当前索引值 | number | `0`
+width | 轮播图宽度 `required` | number `rn`, any `h5` | `null`
+height | 轮播图高度 `required` | number `rn`, any `h5` | `null`
+autoPlay | 是否自动播放 | boolean | `true`
+autoPlayTimeout | 自动播放时每张图片的切换时间 | number | 3000 `ms`
+showDot | 是否展示圆点 | boolean | true
+dotColor | 圆点的颜色 | string | `"#666666"`
+activeDotColor | 激活圆点的颜色 | string | `"#68b1ed"`
+dotWidth | 圆点的宽度 | number | 10 `rn`, 20 `h5(px)`
+dotBottomOffset `rn only` | 原点距离轮播图底部的距离，默认为圆点的宽度 | number | `dotWidth`
+onIndexChanged | 索引值发生改变时的回调 | function | `() => {}`
+carouselStyle `rn only` | 轮播图样式 | object | `{}` 
+
+```
+const imgArr = ['./image/1.jpg', './image/2.jpg', './image/3.jpg', './image/4.jpg'];
+<Carousel
+  width = { '100vw' }
+  height = { '30vh' }
+  autoPlay = {false} 
+  index = {2} 
+  onIndexChanged = {(index) => console.log(index)}
+>
+  {
+    imgArr && imgArr.map((url, index) =>
+      <img key = { index } src = { url }/>)
+  }
+</Carousel>
+```
+
+```
+const style = {width: utils.window.width, height: 200}
+<Carousel 
+  carouselStyle = {{marginBottom: 20}} 
+  width = {utils.window.width} 
+  height = {200} 
+  autoPlay = {false} 
+  index = {2} 
+  onIndexChanged = {(index) => console.log(index)}
+>
+  <Image source = {require('../../image/scenery.jpg')} style = {style } />
+  <Image source = {require('../../image/carousel1.jpg')} style = {style} />
+  <Image source = {require('../../image/swiper-bk.jpg')} style = {style} />
+  <Image source = {require('../../image/carousel2.jpg')} style = {style} />
+</Carousel>
+```
+ #### checkbox
+多选框
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+`Checkbox.Group` defaultValue | 默认value | any | `null`
+`Checkbox.Group` value | value（受控）| any | `null`
+`Checkbox.Group` onChange | 多选框勾选值发生改变时的回调，将会返回新的勾选值 | function | `() => {}`
+`Checkbox.Group` disabled | 是否禁用 | boolean | `false`
+`Checkbox.Group` groupStyle | 自定义group容器样式 | object | `{}`
+id `h5 only` | checkbox id，必填项 | string | `null`
+value | checkbox value | any | `null`
+checked | 是否勾选（受控）| boolean | `null`
+checkboxColor `rn only` | 颜色 | string | `#ff4f4f`
+checkboxStyle `rn only` | 自定义样式 | object | `{}`
+textStyle | 自定义文本样式 | object | `{}`
+disabled | 是否禁用 | boolean | `false`
+onChange | 每次点击时的回调，返回勾选状态（bool） | function | `() => {}`
+
+```
+<Checkbox.Group value = {this.state.value} onChange = {value => this.setState({value})} >
+  <Checkbox id = {'checkbox_1'} value = {'A'} >A</Checkbox>
+  <Checkbox id = {'checkbox_2'} value = {'B'} >B</Checkbox>
+  <Checkbox id = {'checkbox_3'} value = {'C'} >C</Checkbox>
+</Checkbox.Group>
+```
+
+```
+<Checkbox.Group defaultValue = {['B']} >
+  <Checkbox value = {'A'} >A</Checkbox>
+  <Checkbox value = {'B'} >B</Checkbox>
+  <Checkbox value = {'C'} >C</Checkbox>
+</Checkbox.Group>
+```
+
+#### collapse
+折叠面板，信息的展开与收起。
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+activityKey | 当前激活项 | string, number | `""`
+onChange | 任意一个折叠面板的折叠状态发生改变时的回调，返回当前激活项（string or JSON.stringify(stringArray)） | function | `() => {}`
+accordion | 是否开启手风琴模式 | boolean | `false`
+style | 自定义样式 | object | `{}`
+`Collapse.Panel` key | id | string, number | `""`
+`Collapse.Panel` title | 标题 | string, number | `""`
+
+```
+<Collapse
+  accordion = {true}
+  onChange = {(activeKey) => activeKey && alert(activeKey)}
+  style = {{marginBottom: '0.4rem'}}
+  activeKey = {'panel2'}
+>
+  <Collapse.Panel title = {'标题1'} panelKey = {'panel1'} >
+    <p className = {'panel-margin'} >这是一个含有回调函数的手风琴模式的面板子组件</p>
+  </Collapse.Panel>
+  <Collapse.Panel title = {'标题2'} panelKey = {'panel2'} >
+    <p className = {'panel-margin'} >这是一个含有回调函数的手风琴模式的面板子组件</p>
+  </Collapse.Panel>
+  <Collapse.Panel title = {'标题3'} panelKey = {'panel3'} >
+    <p className = {'panel-margin'} >这是一个含有回调函数的手风琴模式的面板子组件</p>
+  </Collapse.Panel>
+</Collapse>
+```
+
+```
+<Collapse
+  accordion = {true}
+  onChange = {(activeKey) => activeKey && ToastAndroid.show(activeKey, ToastAndroid.SHORT)}
+  style = {{marginBottom: 20}}
+>
+  <Collapse.Panel title = {'标题1'} panelKey = {'panel1'} >
+    <Text style= {styles.panel} >这是一个含有回调函数的手风琴模式的面板子组件</Text>
+  </Collapse.Panel>
+  <Collapse.Panel title = {'标题2'} panelKey = {'panel2'} >
+    <Text style= {styles.panel} >这是一个含有回调函数的手风琴模式的面板子组件</Text>
+  </Collapse.Panel>
+  <Collapse.Panel title = {'标题3'} panelKey = {'panel3'} >
+    <Text style= {styles.panel} >这是一个含有回调函数的手风琴模式的面板子组件</Text>
+  </Collapse.Panel>
+</Collapse>
+```
+
+
+
