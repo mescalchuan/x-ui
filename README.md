@@ -34,7 +34,7 @@ div { font-size: 16px; }
 ##### IOS
 请将`fonts`文件夹托至xcode中，勾选`Add to targets`和`Create groups`。在`Info.plist`中新建`Fonts provided by application`属性，item设置为`Ionicons`。
 
-###组件
+### 组件
 #### actionsheet
 底部弹出框，多用于分享、图片下载等操作。
 
@@ -47,7 +47,8 @@ cancelButtonTitle | “取消”按钮的标题 | string | `"取消"`
 cancelButtonColor | “取消”按钮的颜色 | string | `"#108EE9"`
 backdropPressToClose | 点击遮罩层时是否关闭ActionSheet | boolean | `false`
 onPress | ActionSheet点击事件，会返回每个options的索引 | function | `() => {}`
-
+show() `static` | 外部打开actionsheet | function | |
+hide()  `static` | 外部关闭actionsheet | function | |
 ```
 <ActionSheet
   ref = {o => this.ActionSheet = o}
@@ -57,7 +58,51 @@ onPress | ActionSheet点击事件，会返回每个options的索引 | function |
     <span className = {'intro-title main-text-color'} >{'删除'}</span>
   ]}
   title = {'自定义组件'}
+  backdropPressToClose = {true}
+  cancelButtonColor = {'#ff4f4f'}
   onPress = {() => alert(index)}
 />
+<button onClick = {() => this.ActionSheet.show()} >open</button>
+```
+
+```
+<ActionSheet
+  ref = {o => this.ActionSheet = o}
+  options = {[
+    'option1',
+    <Text style = {{color: '#108EE9', fontSize: 18}} >{'option2'}</Text>,
+    <Text style = {{color: '#ff4f4f', fontSize: 20}} >{'删除'}</Text>
+  ]}
+  title = {'自定义组件'}
+/>
+<Button title = {'open'} onPress = {() => this.ActionSheet.show()} />
+```
+
+#### badge
+角标，用于消息数量的显示以及一般的小型徽标。当含有子组件时，角标悬浮在自组件右上角，num生效，text失效；当不含自组件时，角标作为单独的徽标，text失效，num生效。
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+num | 角标数字 | number | `0`
+defaultBackColor | 角标背景色 | string | `"#ff4f4f"`
+fontColor | 角标文字颜色 | string | `"white"`
+text | 自定义角标内容 | string | `""`
+style | 自定义角标样式 | object | `{}`
+
+```
+const boxContainer = <div className = {'badge-box'} ></div>
+<Badge num = {1} style = {{marginRight: '0.8rem'}} >{boxContainer}</Badge>
+<Badge text = {'券'} defaultBackColor = {'#f19736'} />
+```
+
+```
+const containerBox = {
+  width: 30,
+  height: 30,
+  backgroundColor: 'gray'
+}
+<Badge num = {1} style = {{marginRight: 30}} >
+  <View style = {containerBox} ></View>
+</Badge>
 ```
 
