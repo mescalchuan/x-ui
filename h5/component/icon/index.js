@@ -8,7 +8,7 @@ import './index.scss';
  * name: icon名字，参考iconMap.json
  * size: icon大小
  * color: icon颜色
- * iconStyle: 自定义icon样式（Text）
+ * iconStyle: 自定义icon样式
  */
 
 export default class Icon extends Component {

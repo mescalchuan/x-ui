@@ -25,10 +25,7 @@ export default class Header extends Component {
     }
     static propTypes = {
         containerStyle: PropTypes.object,
-        title: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number
-        ]),
+        title: PropTypes.string,
         titleStyle: PropTypes.object,
         leftBtn: PropTypes.element,
         rightBtn: PropTypes.element

@@ -23,10 +23,10 @@ export default class Badge extends Component {
 	}
 	//规定每个属性的变量类型
 	static propTypes = {
-		num: PropTypes.number.isRequired,
-		defaultBackColor: PropTypes.string.isRequired,
-		fontColor: PropTypes.string.isRequired,
-		text: PropTypes.string.isRequired,
+		num: PropTypes.number,
+		defaultBackColor: PropTypes.string,
+		fontColor: PropTypes.string,
+		text: PropTypes.string,
         style: PropTypes.object
 	}
     constructor(props) {

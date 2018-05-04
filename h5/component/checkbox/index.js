@@ -99,6 +99,7 @@ class Group extends Component {
  * id: checkbox id，必填项
  * value: checkbox value
  * checked: 是否勾选（受控）
+ * checkboxStyle: 自定义样式
  * textStyle: 自定义文本样式
  * disabled: 是否禁用
  * onChange: 每次点击时的回调，返回勾选状态（bool）
@@ -106,7 +107,6 @@ class Group extends Component {
 
 class Checkbox extends Component {
     static defaultProps = {
-        checkboxColor: utils.theme.mainColor,
         checkboxStyle: {},
         textStyle: {},
         disabled: false,
@@ -114,7 +114,7 @@ class Checkbox extends Component {
     }
     static propTypes = {
         id: PropTypes.string.isRequired,
-        checkboxColor: PropTypes.string,
+        checked: PropTypes.bool,
         checkboxStyle: PropTypes.object,
         textStyle: PropTypes.object,
         disabled: PropTypes.bool,
@@ -159,11 +159,10 @@ class Checkbox extends Component {
     }
     render() {
         const disabledStyle = this.props.disabled ? {color: '#CCCCCC'} : {};
-        const disabledColor = this.props.disabled ? '#CCCCCC' : this.props.checkboxColor;
         const checkClass = this.state.checked ? 'x-checkbox-checked' : '';
         const disabledClass = this.props.disabled ? ' x-checkbox-disabled' : '';
         return (
-            <div className = {'x-checkbox-container' + disabledClass} >
+            <div className = {'x-checkbox-container' + disabledClass} style = {this.props.checkboxStyle} >
                 <input 
                     type = {'checkbox'} 
                     id = {this.props.id} 

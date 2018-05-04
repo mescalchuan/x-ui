@@ -105,7 +105,7 @@ class Group extends Component {
 }
 
 /**
- * value: checkbox id
+ * value: checkbox value
  * checked: 是否勾选（受控）
  * checkboxColor: 颜色
  * checkboxStyle: 自定义样式
@@ -123,6 +123,7 @@ class Checkbox extends Component {
         onChange: () => {}
     }
     static propTypes = {
+        checked: PropTypes.bool,
         checkboxColor: PropTypes.string,
         checkboxStyle: PropTypes.object,
         textStyle: PropTypes.object,

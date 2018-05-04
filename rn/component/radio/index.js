@@ -84,7 +84,7 @@ class Group extends Component {
     }
 }
 /**
- * value: radio id
+ * value: radio value
  * checked: 勾选状态（受控）
  * radioColor: radio颜色
  * radioStyle: 自定义radio样式
@@ -99,6 +99,7 @@ class Radio extends Component {
         textStyle: {}
     }
     static propTypes = {
+        checked: PropTypes.bool,
         radioColor: PropTypes.string,
         disabled: PropTypes.bool,
         radioStyle: PropTypes.object,

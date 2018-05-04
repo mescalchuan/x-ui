@@ -30,7 +30,6 @@ export default class Carousel extends Component {
         dotColor: "#666666",
         activeDotColor: "#68b1ed",
         dotWidth: 10,
-        arrowWidth: 50,
         onIndexChanged: () => {},
         carouselStyle: {}
     }
@@ -46,7 +45,6 @@ export default class Carousel extends Component {
         activeDotColor: PropTypes.string,
         dotWidth: PropTypes.number,
         dotBottomOffset: PropTypes.number,
-        arrowWidth: PropTypes.number,
         onIndexChanged: PropTypes.func,
         carouselStyle: PropTypes.object
     }

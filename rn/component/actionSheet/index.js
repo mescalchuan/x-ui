@@ -18,7 +18,7 @@ const CANCEL_MARGIN = 10;
 /**
  * title: 标题
  * options: 每个按钮的标题，也可以是自定义组件 ['button1', <Text>button2</Text>]
- * showCancelButtpn: 是否显示取消按钮
+ * showCancelButton: 是否显示取消按钮
  * cancelButtonTitle: “取消”按钮的标题
  * cancelButtonColor: “取消”按钮的颜色
  * backdropPressToClose: 点击遮罩层时是否关闭ActionSheet

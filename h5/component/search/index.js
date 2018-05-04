@@ -8,7 +8,7 @@ import './index.scss'
  * value: value（受控）
  * placeholder
  * cancelText: “取消”按钮的文本
- * onChange: 相当于TextInput的onChangeText
+ * onChange: 相当于input的onChange
  * onSubmit
  * onFocus
  * onBlur

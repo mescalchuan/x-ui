@@ -14,15 +14,14 @@ import './index.scss';
 class Collapse extends Component {
     static defaultProps = {
         activityKey: '',
-        onChange: null,
+        onChange: () => {},
         accordion: false,
         style: {}
     }
     static propTypes = {
         activeKey: PropTypes.oneOfType([
             PropTypes.number,
-            PropTypes.string,
-            PropTypes.array
+            PropTypes.string
         ]),
         onChange: PropTypes.func,
         accordion: PropTypes.bool,

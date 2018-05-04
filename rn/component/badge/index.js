@@ -24,10 +24,10 @@ export default class Badge extends Component{
 	}
 	//规定每个属性的变量类型
 	static propTypes = {
-		num: PropTypes.number.isRequired,
-		defaultBackColor: PropTypes.string.isRequired,
-		fontColor: PropTypes.string.isRequired,
-		text: PropTypes.string.isRequired,
+		num: PropTypes.number,
+		defaultBackColor: PropTypes.string,
+		fontColor: PropTypes.string,
+		text: PropTypes.string,
         style: PropTypes.object
 	}
 	constructor(props) {
@@ -71,7 +71,6 @@ export default class Badge extends Component{
 
 		//如果指定了显示角标的组件，则将角标上浮在该组件的右上方，角标显示的位置由角标内容的长度自动调节
 		if(this.props.children){
-			let Container = this.props.container;
 			let offset = rightPosition - (numLength - 1) * 4;
 			return(
 				<View style = {[{width, height: this.height, overflow: 'visible'}, this.props.style]} >

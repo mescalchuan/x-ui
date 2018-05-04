@@ -34,10 +34,7 @@ export default class List extends Component {
     }
     static propTypes = {
         listStyle: PropTypes.object,
-        title: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number
-        ]),
+        title: PropTypes.string,
         titleStyle: PropTypes.object,
         rightContent: PropTypes.element,
         rightIcon: PropTypes.element,

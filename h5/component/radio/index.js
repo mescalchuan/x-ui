@@ -81,18 +81,19 @@ class Group extends Component {
  * id: radio id
  * value: radio value
  * checked: 勾选状态（受控）
+ * radioStyle: 自定义radio样式
  * textStyle: 自定义文本样式
  * disabled: 是否禁用
 */
 class Radio extends Component {
     static defaultProps = {
-        radioColor: utils.theme.mainColor,
         disabled: false,
         radioStyle: {},
         textStyle: {}
     }
     static propTypes = {
-        radioColor: PropTypes.string,
+        id: PropTypes.string.isRequired,
+        checked: PropTypes.bool,
         disabled: PropTypes.bool,
         radioStyle: PropTypes.object,
         textStyle: PropTypes.object
@@ -134,7 +135,7 @@ class Radio extends Component {
         const radioClass = this.state.checked ? 'x-radio-checked' : '';
         const disabledClass = this.props.disabled ? ' x-radio-disabled' : '';
         return (
-            <div className = {'x-radio-container' + disabledClass} >
+            <div className = {'x-radio-container' + disabledClass} style = {this.props.radioStyle} >
                 <input 
                     type = {'radio'} 
                     id = {this.props.id} 
