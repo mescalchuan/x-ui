@@ -48,7 +48,7 @@ cancelButtonColor | “取消”按钮的颜色 | string | `"#108EE9"`
 backdropPressToClose | 点击遮罩层时是否关闭ActionSheet | boolean | `false`
 onPress | ActionSheet点击事件，会返回每个options的索引 | function | `() => {}`
 show() `static` | 外部打开actionsheet | function | |
-hide()  `static` | 外部关闭actionsheet | function | |
+close()  `static` | 外部关闭actionsheet | function | |
 ```
 <ActionSheet
   ref = {o => this.ActionSheet = o}
