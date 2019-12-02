@@ -17,7 +17,7 @@ const MAX_COUNT = 99;
 export default class Badge extends Component{
 	static defaultProps = {
 		num: 0,
-		defaultBackColor: utils.theme.mainColor,
+		defaultBackColor: '#ff4f4f',
 		fontColor: 'white',
 		text: '',
         style: {}
@@ -28,7 +28,7 @@ export default class Badge extends Component{
 		defaultBackColor: PropTypes.string,
 		fontColor: PropTypes.string,
 		text: PropTypes.string,
-        style: PropTypes.object
+        	style: PropTypes.object
 	}
 	constructor(props) {
 		super(props);
