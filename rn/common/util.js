@@ -5,7 +5,7 @@ export default util = {
         height: Dimensions.get('window').height
     },
     theme: {
-        mainColor: '#ff4f4f',
+        mainColor: '#108ee9',
         minorColor: '#333333',
         lineColor: '#eeeeee'
     }
