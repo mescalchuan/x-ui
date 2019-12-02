@@ -123,8 +123,8 @@ export default Card;
 
 const styles = StyleSheet.create({
     wrapContainer: {
-        marginHorizontal: -15,
-        marginTop: -15,
+        //marginHorizontal: -15,
+        //marginTop: -15,
         backgroundColor: 'white'
     },
     card: {
