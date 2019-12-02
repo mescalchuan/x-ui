@@ -6,11 +6,13 @@
     width: 100%;
     display: inline-block;
     border: 0px;
+    vertical-align: top;
+    font-size: px2rem(30);
     @include prefix(border-radius, px2rem(10));
 }
 
 .x-counter-container {
-    border: 1px solid;
+    border: px2rem(2) solid;
     display: inline-block;
     height: px2rem(60);
     position: relative;
@@ -18,8 +20,8 @@
     @include prefix(border-radius, px2rem(10));
     button {
         width: px2rem(70);
-        height: px2rem(60);
-        line-height: px2rem(60);
+        height: px2rem(56);
+        line-height: px2rem(56);
         text-align: center;
         border: 0px;
         @include font-dpr(16px);
@@ -29,19 +31,19 @@
     }
     .x-counter-left {
         left: 0;
-        border-right-width: 1px;
+        border-right-width: px2rem(2);
         @include prefix(border-top-left-radius, px2rem(8));
         @include prefix(border-bottom-left-radius, px2rem(8));
     }
     .x-counter-right {
         right: 0;
-        border-left-width: 1px;
+        border-left-width: px2rem(2);
         @include prefix(border-top-right-radius, px2rem(8));
         @include prefix(border-bottom-right-radius, px2rem(8));
     }
     .x-counter-disabled-box {
         @extend %input-css;
-        line-height: px2rem(60);
+        line-height: px2rem(56);
     }
     .x-counter-input-box {
         @extend %input-css;

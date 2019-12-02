@@ -8,6 +8,7 @@ $align-config: (flex-start, center, flex-end, stretch, baseline);
 }
 
 .x-list-container {
+    width: 100%;
     .x-list-content {
         min-height: px2rem(90);
         @include flex-box;

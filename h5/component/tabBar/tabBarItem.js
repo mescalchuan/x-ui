@@ -59,7 +59,7 @@ export default class TabBarItem extends Component{
             <a
                 className = {`x-tabbar-item${selected ? ' x-tabbar-item-active' : ''}`}
                 href = {'javascript:;'}
-                style = {[textStyle, tabStyle]}
+                style = {Object.assign({}, textStyle, tabStyle)}
                 onClick = {() => changeTab(name)}
             >
                 {selected ? selectedIcon : icon}

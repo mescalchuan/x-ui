@@ -8,6 +8,7 @@
     box-sizing: border-box;
     span {
         @include font-dpr(18px);
+        vertical-align: middle;
     }
     .x-button-content {
         i {

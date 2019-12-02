@@ -27,7 +27,7 @@ export const BUTTON_TYPE = {
 export default class Button extends Component{
     static defaultProps = {
         inline: false,
-        buttonColor: '#ff4f4f',
+        buttonColor: utils.theme.mainColor,
         buttonStyle: {},
         size: BUTTON_SIZE.MIDDLE,
         type: BUTTON_TYPE.FILL,
@@ -56,21 +56,27 @@ export default class Button extends Component{
         const color = isGhost ? this.props.buttonColor : 'white';
         const buttonColor = isGhost ? 'transparent' : this.props.buttonColor;
         const buttonClass = this.props.inline ? `x-button-inline x-button-${this.props.size.toLowerCase()}` : 'x-button-block';
-        if(this.props.inline && this.props.icon) {
-            switch(this.props.size){
-                case BUTTON_SIZE.SMALL:
-                    marginLeft = 5;
-                    break;
-                case BUTTON_SIZE.MIDDLE:
-                    marginLeft = 10;
-                    break;
-                case BUTTON_SIZE.BIG:
-                    marginLeft = 15;
-                    break;
-                default:
-                    break;
+        if(this.props.icon) {
+            if(this.props.inline) {
+                switch(this.props.size){
+                    case BUTTON_SIZE.SMALL:
+                        marginLeft = 5;
+                        break;
+                    case BUTTON_SIZE.MIDDLE:
+                        marginLeft = 10;
+                        break;
+                    case BUTTON_SIZE.BIG:
+                        marginLeft = 15;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else {
+                marginLeft = 10;
             }
         }
+        
         return (
             <div
                 className = {`x-button-container ${buttonClass}${this.props.disabled ? ' x-button-disabled' : ''}`}

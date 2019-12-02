@@ -17,6 +17,7 @@ class TabBar extends Component{
     static defaultProps = {
         tabBarStyle: {},
         tabBarShadowStyle: {},
+        containerStyle: {},
         items: [],
         components: [],
         selectedTab: ''
@@ -24,9 +25,10 @@ class TabBar extends Component{
     static propTypes = {
         tabBarStyle: PropTypes.object,
         tabBarShadowStyle: PropTypes.object,
+        containerStyle: PropTypes.object,
         items: PropTypes.array,
         components: PropTypes.array,
-        selectedTab: ''
+        selectedTab: PropTypes.string
     }
     
     constructor(props){
@@ -79,7 +81,7 @@ class TabBar extends Component{
 
     render(){
         return(
-            <div className = {'x-tabbar-container'} >
+            <div className = {'x-tabbar-container'} style = {this.props.containerStyle} >
                 {this.renderScenes()}
                 <div className = {'x-tabbar-panel-ctn'} >
                     <hr style = {this.props.tabBarShadowStyle} ></hr>

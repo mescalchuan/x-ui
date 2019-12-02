@@ -23,15 +23,15 @@ export default class Carousel extends Component {
         autoPlayTimeout: 3000,
         showDot: true,
         dotColor: '#666666',
-        activeDotColor: '#68b1ed',
+        activeDotColor: utils.theme.mainColor,
         dotWidth: 20,
         onIndexChanged: () => {}
     }
 
     static propTypes = {
         index: PropTypes.number,
-        width: PropTypes.isRequired,
-        height: PropTypes.isRequired,
+        width: PropTypes.any.isRequired,
+        height: PropTypes.any.isRequired,
         autoPlay: PropTypes.bool,
         autoPlayTimeout: PropTypes.number,
         showDot: PropTypes.bool,
@@ -245,6 +245,10 @@ export default class Carousel extends Component {
         document.addEventListener('visibilitychange', this._onVisibleChange);
         this.interval = this.childNum > 1 && this.props.autoPlay ?
             this.runCarousel() : null;
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
     }
 
     render() {

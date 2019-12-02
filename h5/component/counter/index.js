@@ -49,7 +49,8 @@ export default class Counter extends Component{
         }
     }
     componentWillMount() {
-        if(this.defaultValue < this.props.minValue) {
+        let _default = this.state.value ? this.state.value : this.defaultValue
+        if(_default < this.props.minValue) {
             this.setState({
                 value: this.props.minValue
             })

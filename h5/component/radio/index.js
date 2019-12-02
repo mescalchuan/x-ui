@@ -109,9 +109,16 @@ class Radio extends Component {
             this.props.onClick(this.props.value)
         }
         else{
-            this.setState({
-                checked: true
-            })
+            if(this.props.checked == null) {
+                this.setState({
+                    checked: true
+                })
+            }
+            else {
+                this.setState({
+                    checked: this.props.checked
+                })
+            }
         }
     }
     componentWillMount() {

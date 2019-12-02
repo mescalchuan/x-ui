@@ -25,7 +25,7 @@ export default class ActionSheet extends Component{
         options: [],
         showCancelButton: true,
         cancelButtonTitle: '取消',
-        cancelButtonColor: '#108EE9',
+        cancelButtonColor: utils.theme.mainColor,
         backdropPressToClose: false,
         onPress: () => {}
     }
@@ -151,7 +151,7 @@ export default class ActionSheet extends Component{
         const optionsStyle = {
             WebkitTransition: `all ${animateTime}s`,
             transition: `all ${animateTime}s`,
-            bottom: '-' + this.state.sheetAnim
+            bottom: this.state.sheetAnim == 0 ? 0 : '-' + this.state.sheetAnim
         }
         const externalClass = this.state.isShow ? 'x-show' : 'x-hide';
         return (

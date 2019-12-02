@@ -54,9 +54,11 @@ class Item extends Component{
     }
     render(){
         const {flex, flexItemStyle, children}  = this.props;
-        const _flexItemStyle = {
-            flex,
+        let _flexItemStyle = {
             WebkitFlex: flex
+        }
+        if(flex >= 0) {
+            _flexItemStyle.flex = flex
         }
         return (
             <div style = {{..._flexItemStyle, ...flexItemStyle}} >

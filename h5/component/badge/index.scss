@@ -9,6 +9,8 @@
     padding: px2rem(2) px2rem(10);
     @include prefix(border-radius, px2rem(30));
     display: inline-block;
+    font-size: 0;
+    vertical-align: text-top;
     span {
         @include font-dpr(10px);
     }

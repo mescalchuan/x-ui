@@ -24,7 +24,7 @@ export default class List extends Component {
         titleStyle: {},
         rightContent: null,
         rightIcon: <img className = {'x-list-icon'} src = {utils.icon64.right}/>,
-        showRightIcon: true,
+        showRightIcon: false,
         leftContent: null,
         leftContentFlex: 'center',
         rightContentFlex: 'center',
