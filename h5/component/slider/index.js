@@ -27,8 +27,8 @@ export default class Slider extends Component {
         minValue: MIN_VALUE,
         maxValue: MAX_VALUE,
         barColor: '#d5d3d3',
-        ballColor: '#108EE9',
-        crossColor: '#108EE9',
+        ballColor: utils.theme.mainColor,
+        crossColor: utils.theme.mainColor,
         disabled: false,
         onChange: () => {}
     }

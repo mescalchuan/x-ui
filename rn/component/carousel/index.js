@@ -7,6 +7,7 @@ import {
     Easing,
     PanResponder
 } from 'react-native';
+import utils from '../../common/util';
 /**
  * index: 当前索引值
  * width：轮播图宽度（required）
@@ -28,7 +29,7 @@ export default class Carousel extends Component {
         autoPlayTimeout: 3000,
         showDot: true,
         dotColor: "#666666",
-        activeDotColor: "#68b1ed",
+        activeDotColor: utils.theme.mainColor,
         dotWidth: 10,
         onIndexChanged: () => {},
         carouselStyle: {}
