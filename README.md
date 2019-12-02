@@ -266,7 +266,7 @@ onChange | 每次点击时的回调，返回勾选状态（bool） | function | 
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-activityKey | 当前激活项 | string, number | `""`
+activeKey | 当前激活项 | string, number | `""`
 onChange | 任意一个折叠面板的折叠状态发生改变时的回调，返回当前激活项（string or JSON.stringify(stringArray)） | function | `() => {}`
 accordion | 是否开启手风琴模式 | boolean | `false`
 style | 自定义样式 | object | `{}`
