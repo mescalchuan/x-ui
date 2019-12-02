@@ -39,9 +39,16 @@ class Group extends Component {
 
         }
         else{
-            this.setState({
-                currentValue: value
-            })
+            if(this.props.checked == null) {
+                this.setState({
+                    currentValue: value
+                })
+            }
+            else {
+                this.setState({
+                    checked: this.props.checked
+                })
+            }
         }
         this.props.onChange(value);
     }
