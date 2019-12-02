@@ -39,7 +39,7 @@ export default class List extends Component {
         titleStyle: {},
         rightContent: null,
         rightIcon: <Image source = {ARROW_RIGHT} style = {{width: 15, height: 15}} />,
-        showRightIcon: true,
+        showRightIcon: false,
         leftContent: null,
         leftContentFlex: 'center',
         rightContentFlex: 'center',
