@@ -31,12 +31,12 @@ export default class ActionSheet extends Component{
         options: [],
         showCancelButton: true,
         cancelButtonTitle: '取消',
-        cancelButtonColor: '#108EE9',
+        cancelButtonColor: utils.theme.mainColor,
         backdropPressToClose: false,
         onPress: () => {}
     }
     static propTypes = {
-		title: PropTypes.string,
+	title: PropTypes.string,
         options: PropTypes.array,
         showCancelButton: PropTypes.bool,
         cancelButtonTitle: PropTypes.string,
