@@ -32,7 +32,7 @@ div { font-size: 16px; }
 ##### Android
 请将`fonts`文件夹放入`android/app/src/main/assets/`中。
 ##### IOS
-请将`fonts`文件夹托至xcode中，勾选`Add to targets`和`Create groups`。在`Info.plist`中新建`Fonts provided by application`属性，item设置为`Ionicons`。
+请将`fonts`文件夹托至xcode中，勾选`Add to targets`和`Create groups`。在`Info.plist`中新建`Fonts provided by application`属性，item设置为`Ionicons.ttf`。
 
 ### 组件
 * #### ActionSheet
