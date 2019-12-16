@@ -66,7 +66,7 @@ class Body extends Component{
             let extendProps = {};
             if(item.type.displayName == 'Image'){
                 wrapStyle = {
-                    maxWidth: utils.window.width,
+                    maxWidth: utils.window.width - 30,
                 }
                 extendProps = {
                     resizeMode: 'cover'

@@ -64,7 +64,8 @@ export default class Counter extends Component{
         }
     }
     componentWillMount() {
-        if(this.defaultValue < this.props.minValue) {
+        let _default = this.state.value ? this.state.value : this.defaultValue
+        if(_default < this.props.minValue) {
             this.setState({
                 value: this.props.minValue
             })
@@ -79,6 +80,8 @@ export default class Counter extends Component{
     }
     onChange(val) {
         let value = Number(val);
+        //NaN处理
+        if(isNaN(value)) value = this.state.value;
         //不能出现负数
         if(value < MIN_VALUE) value = MIN_VALUE;
         if(value < this.props.minValue) value = this.props.minValue;

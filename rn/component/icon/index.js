@@ -15,7 +15,7 @@ import IconMap from './iconMap.json';
 export default class Icon extends Component {
     static defaultProps = {
         name: 'ios-add',
-        size: 15,
+        size: 30,
         color: '#666666',
         iconStyle: {}
     }

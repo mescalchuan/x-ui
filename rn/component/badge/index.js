@@ -68,7 +68,6 @@ export default class Badge extends Component{
 		let numLength = this.props.num > MAX_COUNT ? MAX_COUNT.toString().length : this.props.num.toString().length;
 		const rightPosition = -7;
 		const width = this.calculateWidth(this.width, actualNum);
-
 		//如果指定了显示角标的组件，则将角标上浮在该组件的右上方，角标显示的位置由角标内容的长度自动调节
 		if(this.props.children){
 			let offset = rightPosition - (numLength - 1) * 4;

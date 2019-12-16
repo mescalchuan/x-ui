@@ -15,7 +15,7 @@ class Flex extends Component{
     static defaultProps = {
         justify: 'flex-start',
         align: 'flex-start',
-        wrap: 'wrap',
+        wrap: 'nowrap',
         flexStyle: {}
     }
     static propTypes = {

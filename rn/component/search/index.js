@@ -6,7 +6,8 @@ import {
     Animated,
     StyleSheet,
     Modal,
-    TextInput
+    TextInput,
+    SafeAreaView
 } from 'react-native';
 import PropTypes from 'prop-types';
 import utils from '../../common/util';
@@ -110,6 +111,23 @@ export default class Search extends Component{
             <TouchableOpacity style = {[styles.cancelButton, {backgroundColor: 'transparent'}]} onPress = {() => this.onCancel()}  >
                 <Text style = {styles.cancelText} >{this.props.cancelText}</Text>
             </TouchableOpacity>)
+        let props = {
+            style: [styles.searchContainer, styles.textInput, {backgroundColor: 'white'}],
+            underlineColorAndroid: 'transparent',
+            placeholder: this.props.placeholder,
+            ref: search => this.search = search,
+            onChangeText: v => this.props.onChange(v),
+            onSubmitEditing: () => this.props.onSubmit(),
+            onFocus: () => this.onFocus(),
+            onBlur: () => this.props.onBlur(),
+            editable: !this.props.disabled
+        }
+        if(this.props.value) {
+            props.value = this.props.value
+        }
+        if(this.props.defaultValue) {
+            props.defaultValue = this.props.defaultValue
+        }
         return (
             <View style = {styles.container} >
                 {
@@ -125,19 +143,10 @@ export default class Search extends Component{
                     ) :
                     (
                         <View style = {[styles.containerInput, {backgroundColor: 'transparent'}]} >
-                            <TextInput
-                                style = {[styles.searchContainer, styles.textInput, {backgroundColor: 'white'}]}
-                                underlineColorAndroid = {'transparent'}
-                                defaultValue = {this.props.defaultValue}
-                                value = {this.props.value}
-                                placeholder = {this.props.placeholder}
-                                ref = {search => this.search = search}
-                                onChangeText = {(v) => this.props.onChange(v)}
-                                onSubmitEditing = {() => this.props.onSubmit()}
-                                onFocus = {() => this.onFocus()}
-                                onBlur = {() => this.props.onBlur()}
-                                editable = {!this.props.disabled}
-                            />
+                            {
+                                React.cloneElement(<TextInput/>, props)
+                                
+                            }
                             {
                                 this.props.showCancelButton ? cancelButton :
                                 (
@@ -157,7 +166,7 @@ export default class Search extends Component{
                             onRequestClose = {() => {}}
                             animationType = {'none'}
                         >
-                            <View>
+                            <SafeAreaView>
                                 <View style = {[styles.container, styles.containerInput]} >
                                     <TextInput
                                         style = {[styles.searchContainer, styles.textInput]}
@@ -178,7 +187,7 @@ export default class Search extends Component{
                                     </TouchableOpacity>
                                 </View>
                                 {this.props.modalComponent}
-                            </View>
+                            </SafeAreaView>
                         </Modal>
                     ) : null
                 }

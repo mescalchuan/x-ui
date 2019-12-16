@@ -94,6 +94,10 @@ export default class Button extends Component{
                     break;
             }
         }
+        else if((this.props.icon || this.props.loading) && !this.props.inline) {
+            inlineHorizontal = 8;
+            inlineVertical = 0;
+        }
         extendStyle = {
             paddingHorizontal: inlineHorizontal,
             paddingVertical: inlineVertical
@@ -121,7 +125,7 @@ export default class Button extends Component{
                         ]}
                     >
                         {
-                            this.props.loading ? <ActivityIndicator color = {this.props.loadingColor} style = {{marginRight: inlineHorizontal / 2}} /> : null
+                            this.props.loading ? <ActivityIndicator color = {this.props.loadingColor} style = {{marginRight: inlineHorizontal}} /> : null
                         }
                         {
                             this.props.icon && !this.props.loading ? <View style = {{marginLeft: inlineHorizontal / 2}} >{this.props.icon}</View> : null

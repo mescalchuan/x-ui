@@ -8,8 +8,8 @@ import List from '../list';
 import PropTypes from 'prop-types';
 import utils from '../../common/util';
 
-const ARROW_UP = require('../../image/arrow-up.png');
-const ARROW_DOWN = require('../../image/arrow-down.png');
+const ARROW_UP = require('./arrow-up.png');
+const ARROW_DOWN = require('./arrow-down.png');
 
 /**
  * activityKey: 当前激活项
@@ -142,6 +142,7 @@ class Panel extends Component {
                 <View style = {styles.horizontalLine} ></View>
                 <List
                     title = {this.props.title}
+                    showRightIcon
                     rightIcon = {<Image source = {source} style = {styles.icon} />}
                     onPress = {() => changeOpenState(changeOpenStateParams)}
                     showLine = {this.props.showLine}

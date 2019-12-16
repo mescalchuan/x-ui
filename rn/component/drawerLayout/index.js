@@ -57,6 +57,7 @@ export default class DrawerLayout extends Component{
     constructor(props){
         super(props);
         this.state = {
+            drawerStartShow: false,
             drawerHasShown: false,
             openValue: new Animated.Value(0)
         }
@@ -86,6 +87,9 @@ export default class DrawerLayout extends Component{
     }
 
     openDrawer(){
+        this.setState({
+            drawerStartShow: true
+        })
         Animated.spring(this.state.openValue, {
             toValue: 1,
             bounciness: 0,
@@ -110,6 +114,7 @@ export default class DrawerLayout extends Component{
         }).start(() => {
             this.props.onDrawerClose && this.props.onDrawerClose();
             this.setState({
+                drawerStartShow: false,
                 drawerHasShown: false
             })
         });
@@ -208,8 +213,8 @@ export default class DrawerLayout extends Component{
         });
         const pointerEvents = this.state.drawerHasShown ? 'auto' : 'none';
         return (
-            <View  {...this.watcher.panHandlers} style = {{flex: 1, backgroundColor: 'transparent'}} >
-                <Animated.View style = {{flex: 1}} >
+            <>
+                <Animated.View {...this.watcher.panHandlers} style = {{flex: 1}} >
                     {this.props.children}
                 </Animated.View>
                 <TouchableWithoutFeedback
@@ -221,17 +226,19 @@ export default class DrawerLayout extends Component{
                         style = {[styles.overlay, {opacity: overlayOpacity}]}
                     />
                 </TouchableWithoutFeedback>
-                <Animated.View
-                    style = {[
-                        styles.drawer,
-                        {width: this.props.drawerWidth, left: 0, elevation: 5},
-                        {transform: [{translateX: drawerTranslateX}]},
-                    ]}
-                >
-                    {this.props.renderNavigationView()}
-                </Animated.View>
+                {
+                    this.state.drawerStartShow ? <Animated.View
+                        style = {[
+                            styles.drawer,
+                            {width: this.props.drawerWidth, left: 0, elevation: 5},
+                            {transform: [{translateX: drawerTranslateX}]},
+                        ]}
+                    >
+                        {this.props.renderNavigationView()}
+                    </Animated.View> : null
+                }
 
-            </View>
+            </>
         );
     }
 }
@@ -242,10 +249,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: util.window.width,
         height: util.window.height,
-        zIndex: 98
+        zIndex: 98,
+        top: 0,
+        left: 0
     },
     drawer: {
         position: 'absolute',
+        top: 0,
+        left: 0,
         height: util.window.height,
         zIndex: 99,
         backgroundColor: 'white'

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
     View,
-    StyleSheet
+    StyleSheet,
+    SafeAreaView
 } from 'react-native';
 import PropTypes from 'prop-types';
 import TabBarItem from './tabBarItem';
@@ -79,7 +80,7 @@ class TabBar extends Component{
     }
     render(){
         return(
-            <View style = {{flex: 1}} >
+            <SafeAreaView style = {{flex: 1}} >
                 <View style = {{flex: 1}} >
                     {this.renderItems()}
                 </View>
@@ -87,7 +88,7 @@ class TabBar extends Component{
                 <View style = {[styles.tabbarContainer, this.props.tabBarStyle]} >
                     {this.renderTabbar()}
                 </View>
-            </View>
+            </SafeAreaView>
         )
     }
 }
