@@ -104,7 +104,7 @@ export default class ActionSheet extends Component{
             }
             const isCancel = this.props.showCancelButton && index == options.length - 1;
             const isTitle = this.props.title && index == 0;
-            const marginTop = isCancel ? CANCEL_MARGIN : 0;
+            const marginTop = isCancel ? utils.px2rem(CANCEL_MARGIN) : 0;
             const height = isTitle ? utils.px2rem(TITLE_HEIGHT) : utils.px2rem(ITEM_HEIGHT);
             const fontClass = isTitle ? 'x-ah-title-text' : 'x-ah-item-text';
             const fontWeight = isCancel ? 'bold' : 'normal';
